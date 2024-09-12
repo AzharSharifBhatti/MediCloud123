@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing PHP and Composer
+      - apt-get install -y php-cli unzip curl
+      - curl -sS https://getcomposer.org/installer | php
+      - mv composer.phar /usr/local/bin/composer
+  build:
+    commands:
+      - echo Build started on `date`
+      - composer install
+artifacts:
+  files:
+    - '**/*'
